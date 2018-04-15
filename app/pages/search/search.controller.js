@@ -2,20 +2,39 @@
     'use strict';
     
     angular.module('nwjs-angular')
-    .controller('SearchController', function SearchController($scope, TimelineService) {
+    .controller('SearchController', function SearchController($scope, $filter, TimelineService) {
         
-        $scope.timelineData = [];
+        $scope.timelineDataOriginal = [];
+        $scope.timelineDataToShowOnPage = [];
         $scope.filters = {};
         
         function initializeController() {
             TimelineService.fetchTimelineData()
             .then(function onFetchSuccess(response) {
                 if (!response.error) {
-                    $scope.timelineData = response.data;  
+                    $scope.timelineDataOriginal = response.data; 
+                    $scope.timelineDataToShowOnPage = response.data;
                 }
             });
         }
         
         initializeController();
+
+        function trimUnfilledFilters(filterObject) {
+            let trimmedFilter = {};
+
+            Object.keys(filterObject).forEach((key) => {
+                if (filterObject[key].toString() !== '') {
+                    trimmedFilter[key] = filterObject[key]
+                }
+            });
+
+            return trimmedFilter;
+        }
+
+        $scope.filterData = function () {
+            let filter = trimUnfilledFilters($scope.filters);
+            $scope.timelineDataToShowOnPage = $filter('timelineDataFilter')($scope.timelineDataOriginal, filter);
+        }
     });
 })();
