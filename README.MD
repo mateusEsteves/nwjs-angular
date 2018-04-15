@@ -4,7 +4,7 @@
 
 **NW JS:** É necessário instalar o NWJS para que esta aplicação funcione. Para mais informações sobre como instalar consulte o site: [NW.js Documentation](http://docs.nwjs.io/en/latest/)
 
-**NodeJS + NPM** São necessários para instalar as dependências do projeto. Para mais informações sobre a instalação, consulte: [Node Version Manager](https://github.com/creationix/nvm)
+**NodeJS + NPM:** São necessários para instalar as dependências do projeto. Para mais informações sobre a instalação, consulte: [Node Version Manager](https://github.com/creationix/nvm)
 
 ## Instalação
 
