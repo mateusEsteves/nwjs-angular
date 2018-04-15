@@ -41,10 +41,10 @@
                     if (typeof item[key] !== 'undefined' && hasSoundexMatch(item[key], filterBy[key])) {
                         numberOfMatchedProperties++;
                     }
-                })
+                });
                 
                 return numberOfMatchedProperties === numberOfPropertiesToMatch;
-            })
+            });
             
             return filteredData;
         }
