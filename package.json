@@ -1,0 +1,9 @@
+{
+    "version": "1.0.0",
+    "name": "nwjs-angular",
+    "main": "index.html",
+    "dependencies": {
+        "@uirouter/angularjs": "^1.0.7",
+        "angular": "^1.6.9"
+    }
+}
