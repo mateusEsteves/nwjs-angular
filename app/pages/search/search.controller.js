@@ -4,12 +4,14 @@
     angular.module('nwjs-angular')
     .controller('SearchController', function SearchController($scope, $filter, $mdSidenav, TimelineService) {
         
-        $scope.timelineDataOriginal = [];
-        $scope.timelineDataToShowOnPage = [];
-        $scope.filters = {};
         
         
         function initializeController() {
+            $scope.timelineDataOriginal = [];
+            $scope.timelineDataToShowOnPage = [];
+            $scope.wasDataFiltered = false;
+            $scope.filters = {};
+
             TimelineService.fetchTimelineData()
             .then(function onFetchSuccess(response) {
                 if (!response.error) {
@@ -34,14 +36,16 @@
         }
         
         $scope.filterData = function () {
+            $scope.wasDataFiltered = true;
             let filter = trimUnfilledFilters($scope.filters);
             $scope.timelineDataToShowOnPage = $filter('timelineDataFilter')($scope.timelineDataOriginal, filter);
             $scope.toggleSidebar();
         }
         
         $scope.clearFilters = function () {
+            $scope.wasDataFiltered = false;
+            $scope.filters = {};
             $scope.timelineDataToShowOnPage = angular.copy($scope.timelineDataOriginal);
-            $scope.toggleSidebar();
         }
         
         $scope.toggleSidebar = function () {
