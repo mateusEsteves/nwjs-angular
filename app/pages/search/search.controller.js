@@ -36,15 +36,15 @@
         }
         
         $scope.filterData = function () {
-            $scope.wasDataFiltered = true;
             let filter = trimUnfilledFilters($scope.filters);
             $scope.timelineDataToShowOnPage = $filter('timelineDataFilter')($scope.timelineDataOriginal, filter);
+            $scope.wasDataFiltered = true;
             $scope.toggleSidebar();
         }
         
         $scope.clearFilters = function () {
-            $scope.wasDataFiltered = false;
             $scope.filters = {};
+            $scope.wasDataFiltered = false;
             $scope.timelineDataToShowOnPage = angular.copy($scope.timelineDataOriginal);
         }
         

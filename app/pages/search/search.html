@@ -13,6 +13,9 @@
 
 <section>
     <md-sidenav class="md-sidenav-right sidenav" md-component-id="right" md-whiteframe="4">
+        <md-toolbar>
+            <h3 class="md-toolbar-tools">Filtros</h3>
+        </md-toolbar>
         <md-content layout-padding="" layout-margin>
             <md-input-container>
                 <label for="input_category">Categoria:</label>
@@ -29,16 +32,13 @@
                 <input type="text" id="input_description" ng-model="filters.description">
             </md-input-container>
         
-            <!-- <md-button class="md-raised" type="reset" ng-click="clearFilters()">Limpar</md-button> -->
             <md-button class="md-raised md-primary" ng-click="filterData()">Filtrar</md-button>
         </md-content>
     </md-sidenav>
     
 </section>
 
-
-<div ng-repeat="media in timelineDataToShowOnPage">
-    <img src="{{media.thumbnail}}" alt="NOT_LOADED" width="50px" height="50px">
-    <p>{{media.type}}</p>
-    <p>{{media.description}}</p>
+<div flex-xs="" flex-gt-xs="" layout="column">
+    <media-card ng-repeat="media in timelineDataToShowOnPage" media-object="media">
+    </media-card>
 </div>
