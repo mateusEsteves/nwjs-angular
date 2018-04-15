@@ -1,12 +1,20 @@
 <h1>I'M on search page</h1>
 
 <form>
-    <label for="category_input">Categoria:</label>
-    <input type="text" id="category_input" ng-model="filters.category">
+    <label for="input_category">Categoria:</label>
+    <input type="text" id="input_category" ng-model="filters.category">
+
+    <label for="input_type">Tipo:</label>
+    <input type="text" id="input_type" ng-model="filters.type">
+    
+    <label for="input_description">Descrição:</label>
+    <input type="text" id="input_description" ng-model="filters.description">
+
+    <md-button class="md-raised md-primary">Filtrar</md-button>
 </form>
 
 <div ng-repeat="media in timelineData">
-    <img src="{{media.thumbnail}}" alt="not loaded" width="50px" height="50px">
+    <img src="{{media.thumbnail}}" alt="NOT_LOADED" width="50px" height="50px">
     <p>{{media.type}}</p>
     <p>{{media.description}}</p>
 </div>
