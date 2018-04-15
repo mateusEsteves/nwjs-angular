@@ -2,7 +2,9 @@
     'use strict';
     
     angular.module('nwjs-angular', [
-        'ui.router'
+        'ui.router',
+        'ngMaterial',
+        'ngMessages'
     ])
     .run(function initializeApp($rootScope) {
         // Exibir devtools
