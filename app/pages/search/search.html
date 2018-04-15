@@ -1,19 +1,33 @@
-<h1>I'M on search page</h1>
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h3 md-truncate="" flex="">Timeline</h3>
+        <md-button class="md-icon-button" ng-click="toggleSidebar()">
+            <md-icon md-svg-icon="/app/assets/svg/filter.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
 
-<form>
-    <label for="input_category">Categoria:</label>
-    <input type="text" id="input_category" ng-model="filters.category">
-
-    <label for="input_type">Tipo:</label>
-    <input type="text" id="input_type" ng-model="filters.type">
+<section>
+    <md-sidenav class="md-sidenav-right sidenav" md-component-id="right" md-whiteframe="4">
+        <md-content layout-margin="">
+            <label for="input_category">Categoria:</label>
+            <input type="text" id="input_category" ng-model="filters.category">
+        
+            <label for="input_type">Tipo:</label>
+            <input type="text" id="input_type" ng-model="filters.type">
+            
+            <label for="input_description">Descrição:</label>
+            <input type="text" id="input_description" ng-model="filters.description">
+        
+            <md-button class="md-raised" type="reset" ng-click="clearFilters()">Limpar</md-button>
+            <md-button class="md-raised md-primary" ng-click="filterData()">Filtrar</md-button>
+        </md-content>
+    </md-sidenav>
     
-    <label for="input_description">Descrição:</label>
-    <input type="text" id="input_description" ng-model="filters.description">
+</section>
 
-    <md-button class="md-raised md-primary">Filtrar</md-button>
-</form>
 
-<div ng-repeat="media in timelineData">
+<div ng-repeat="media in timelineDataToShowOnPage">
     <img src="{{media.thumbnail}}" alt="NOT_LOADED" width="50px" height="50px">
     <p>{{media.type}}</p>
     <p>{{media.description}}</p>
