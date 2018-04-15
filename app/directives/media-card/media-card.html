@@ -3,7 +3,7 @@
         <md-card-title-text>
             <span class="md-headline">{{mediaObject.description}}</span>
             <span class="md-subhead">Categoria: {{mediaObject.category}}</span>
-            <span class="md-subhead">Tipo de mídia: {{mediaObject.type}}</span>
+            <span class="md-subhead">Tipo de mídia: {{mediaObject.type | ucfirst}}</span>
         </md-card-title-text>
         <md-card-title-media>
             <img src="{{mediaObject.thumbnail}}" alt="FAILED" class="md-media-sm card-media">
